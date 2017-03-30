@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import * as actions from '../actions';
 
-import Header from './header';
-
 class CustomerList extends Component {
   componentWillMount() {
     this.props.fetchCustomers();
@@ -24,7 +22,6 @@ class CustomerList extends Component {
   render() {
     return (
       <div>
-        <Header title="Customers" />
         <table className="customer-list table table-striped">
           <thead>
             <tr>

@@ -79,19 +79,19 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _invoice_list = __webpack_require__(272);
+	var _customers = __webpack_require__(554);
 
-	var _invoice_list2 = _interopRequireDefault(_invoice_list);
+	var _customers2 = _interopRequireDefault(_customers);
 
-	var _customer_list = __webpack_require__(300);
+	var _products = __webpack_require__(555);
 
-	var _customer_list2 = _interopRequireDefault(_customer_list);
+	var _products2 = _interopRequireDefault(_products);
 
-	var _product_list = __webpack_require__(301);
+	var _invoices = __webpack_require__(556);
 
-	var _product_list2 = _interopRequireDefault(_product_list);
+	var _invoices2 = _interopRequireDefault(_invoices);
 
-	var _add_invoice = __webpack_require__(302);
+	var _add_invoice = __webpack_require__(557);
 
 	var _add_invoice2 = _interopRequireDefault(_add_invoice);
 
@@ -112,10 +112,10 @@
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: '/', component: _app2.default },
-	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _invoice_list2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'invoices', component: _invoice_list2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'customers', component: _customer_list2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'products', component: _product_list2.default }),
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _invoices2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: 'invoices', component: _invoices2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: 'customers', component: _customers2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: 'products', component: _products2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: 'add-invoice', component: _add_invoice2.default })
 	    )
 	  )
@@ -28229,10 +28229,6 @@
 
 	var _nav2 = _interopRequireDefault(_nav);
 
-	var _header = __webpack_require__(271);
-
-	var _header2 = _interopRequireDefault(_header);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28408,10 +28404,6 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _header = __webpack_require__(271);
-
-	var _header2 = _interopRequireDefault(_header);
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -28465,7 +28457,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { title: 'Invoices' }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'invoice-list' },
@@ -30113,10 +30104,6 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _header = __webpack_require__(271);
-
-	var _header2 = _interopRequireDefault(_header);
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -30175,7 +30162,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { title: 'Customers' }),
 	        _react2.default.createElement(
 	          'table',
 	          { className: 'customer-list table table-striped' },
@@ -30250,10 +30236,6 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _header = __webpack_require__(271);
-
-	var _header2 = _interopRequireDefault(_header);
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -30307,7 +30289,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { title: 'Products' }),
 	        _react2.default.createElement(
 	          'table',
 	          { className: 'product-list table table-striped' },
@@ -30377,10 +30358,6 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _header = __webpack_require__(271);
-
-	var _header2 = _interopRequireDefault(_header);
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -30430,7 +30407,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'add-invoice' },
-	        _react2.default.createElement(_header2.default, { title: 'Add Invoice' }),
 	        _react2.default.createElement(
 	          'form',
 	          { onSubmit: handleSubmit(this.handleFormSubmit.bind(this)) },
@@ -40959,6 +40935,182 @@
 	};
 
 	var _types = __webpack_require__(299);
+
+/***/ },
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _customer_list = __webpack_require__(300);
+
+	var _customer_list2 = _interopRequireDefault(_customer_list);
+
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Customers = function Customers(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_header2.default, { title: 'Customers' }),
+	    _react2.default.createElement(_customer_list2.default, null)
+	  );
+	};
+
+	exports.default = Customers;
+
+/***/ },
+/* 555 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _product_list = __webpack_require__(301);
+
+	var _product_list2 = _interopRequireDefault(_product_list);
+
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Products = function Products(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_header2.default, { title: 'Products' }),
+	    _react2.default.createElement(_product_list2.default, null)
+	  );
+	};
+
+	exports.default = Products;
+
+/***/ },
+/* 556 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _invoice_list = __webpack_require__(272);
+
+	var _invoice_list2 = _interopRequireDefault(_invoice_list);
+
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Invoices = function Invoices(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_header2.default, { title: 'Invoices' }),
+	    _react2.default.createElement(_invoice_list2.default, null)
+	  );
+	};
+
+	exports.default = Invoices;
+
+/***/ },
+/* 557 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _add_invoice = __webpack_require__(302);
+
+	var _add_invoice2 = _interopRequireDefault(_add_invoice);
+
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AddInvoice = function AddInvoice(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_header2.default, { title: 'Add Invoice' }),
+	    _react2.default.createElement(_add_invoice2.default, null)
+	  );
+	};
+
+	exports.default = AddInvoice;
 
 /***/ }
 /******/ ]);

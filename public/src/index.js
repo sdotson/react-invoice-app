@@ -7,10 +7,10 @@ import Async from './middlewares/async';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/app';
-import InvoiceList from './components/invoice_list';
-import CustomerList from './components/customer_list';
-import ProductList from './components/product_list';
-import AddInvoice from './components/add_invoice';
+import Customers from './pages/customers';
+import Products from './pages/products';
+import Invoices from './pages/invoices';
+import AddInvoice from './pages/add_invoice';
 
 import reducers from './reducers';
 
@@ -20,10 +20,10 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={InvoiceList}/>
-        <Route path="invoices" component={InvoiceList}></Route>
-        <Route path="customers" component={CustomerList}></Route>
-        <Route path="products" component={ProductList}></Route>
+        <IndexRoute component={Invoices}/>
+        <Route path="invoices" component={Invoices}></Route>
+        <Route path="customers" component={Customers}></Route>
+        <Route path="products" component={Products}></Route>
         <Route path="add-invoice" component={AddInvoice}></Route>
       </Route>
     </Router>
