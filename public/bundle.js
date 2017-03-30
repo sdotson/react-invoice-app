@@ -30411,13 +30411,48 @@
 	          'form',
 	          { onSubmit: handleSubmit(this.handleFormSubmit.bind(this)) },
 	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Create new customer'
+	          ),
+	          _react2.default.createElement(
 	            'fieldset',
 	            { className: 'form-group' },
 	            _react2.default.createElement(
 	              'label',
 	              null,
-	              'Customer:'
+	              'Name:'
 	            ),
+	            _react2.default.createElement(_reduxForm.Field, { name: 'name', component: 'input', className: 'form-control' })
+	          ),
+	          _react2.default.createElement(
+	            'fieldset',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              'Address:'
+	            ),
+	            _react2.default.createElement(_reduxForm.Field, { name: 'address', component: 'input', className: 'form-control' })
+	          ),
+	          _react2.default.createElement(
+	            'fieldset',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              'Phone:'
+	            ),
+	            _react2.default.createElement(_reduxForm.Field, { name: 'phone', component: 'input', className: 'form-control' })
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Or select existing customer'
+	          ),
+	          _react2.default.createElement(
+	            'fieldset',
+	            { className: 'form-group' },
 	            _react2.default.createElement(
 	              _reduxForm.Field,
 	              { name: 'customer', component: 'select', className: 'form-control', onChange: this.selectCustomer.bind(this) },
@@ -30433,13 +30468,13 @@
 	            selectedCustomer.address
 	          ),
 	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Discount Amount'
+	          ),
+	          _react2.default.createElement(
 	            'fieldset',
 	            { className: 'form-group' },
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Discount:'
-	            ),
 	            _react2.default.createElement(_reduxForm.Field, { name: 'discount', component: 'input', className: 'form-control' })
 	          )
 	        ),

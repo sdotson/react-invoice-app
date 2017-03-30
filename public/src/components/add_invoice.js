@@ -24,8 +24,21 @@ class AddInvoice extends Component {
     return (
       <div className="add-invoice">
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+          <h3>Create new customer</h3>
           <fieldset className="form-group">
-            <label>Customer:</label>
+            <label>Name:</label>
+            <Field name="name" component="input" className="form-control" />
+          </fieldset>
+          <fieldset className="form-group">
+            <label>Address:</label>
+            <Field name="address" component="input" className="form-control" />
+          </fieldset>
+          <fieldset className="form-group">
+            <label>Phone:</label>
+            <Field name="phone" component="input" className="form-control" />
+          </fieldset>
+          <h3>Or select existing customer</h3>
+          <fieldset className="form-group">
             <Field name="customer" component="select" className="form-control" onChange={this.selectCustomer.bind(this)}>
               {customers.map(customer =>
                 <option value={customer.id} key={customer.id}>{customer.name}</option>)}
@@ -33,8 +46,8 @@ class AddInvoice extends Component {
             {selectedCustomer.phone}
             {selectedCustomer.address}
           </fieldset>
+          <h3>Discount Amount</h3>
           <fieldset className="form-group">
-            <label>Discount:</label>
             <Field name="discount" component="input" className="form-control" />
           </fieldset>
         </form>
