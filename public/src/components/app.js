@@ -8,7 +8,6 @@ export default class App extends Component {
     return (
       <div>
         <Nav />
-        <Header path={this.props.location.pathname} />
         {this.props.children}
       </div>
     );

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import * as actions from '../actions';
 
+import Header from './header';
+
 class ProductList extends Component {
   componentWillMount() {
     this.props.fetchProducts();
@@ -20,18 +22,21 @@ class ProductList extends Component {
 
   render() {
     return (
-      <table className="product-list table table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.props.products.map(this.renderProduct)}
-        </tbody>
-      </table>
+      <div>
+        <Header title="Products" />
+        <table className="product-list table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.products.map(this.renderProduct)}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

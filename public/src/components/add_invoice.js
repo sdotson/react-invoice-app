@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from '../actions';
 
+import Header from './header';
+
 class AddInvoice extends Component {
   componentWillMount() {
     this.props.fetchCustomers();
@@ -23,6 +25,7 @@ class AddInvoice extends Component {
     const { handleSubmit, customers, products, selectedCustomer } = this.props;
     return (
       <div className="add-invoice">
+        <Header title="Add Invoice" />
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <fieldset className="form-group">
             <label>Customer:</label>

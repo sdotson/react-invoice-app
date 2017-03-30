@@ -28257,7 +28257,6 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_nav2.default, null),
-	        _react2.default.createElement(_header2.default, { path: this.props.location.pathname }),
 	        this.props.children
 	      );
 	    }
@@ -28359,7 +28358,7 @@
 /* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28369,18 +28368,16 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(208);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Header = function Header(props) {
 	  return _react2.default.createElement(
-	    'div',
-	    { className: 'page-header' },
+	    "div",
+	    { className: "page-header" },
 	    _react2.default.createElement(
-	      'h1',
+	      "h1",
 	      null,
-	      props.path
+	      props.title
 	    )
 	  );
 	};
@@ -28410,6 +28407,10 @@
 	var _actions = __webpack_require__(273);
 
 	var actions = _interopRequireWildcard(_actions);
+
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -28463,18 +28464,23 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'invoice-list' },
-	        this.props.invoices.length > 0 ? this.props.invoices.map(this.renderInvoice) : "There are no invoices at the moment.",
+	        null,
+	        _react2.default.createElement(_header2.default, { title: 'Invoices' }),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'invoice-list' },
+	          this.props.invoices.length > 0 ? this.props.invoices.map(this.renderInvoice) : "There are no invoices at the moment.",
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/add-invoice' },
+	            'div',
+	            null,
 	            _react2.default.createElement(
-	              'button',
-	              { type: 'button', className: 'btn btn-primary' },
-	              'Add Invoice'
+	              _reactRouter.Link,
+	              { to: '/add-invoice' },
+	              _react2.default.createElement(
+	                'button',
+	                { type: 'button', className: 'btn btn-primary' },
+	                'Add Invoice'
+	              )
 	            )
 	          )
 	        )
@@ -30107,6 +30113,10 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -30163,40 +30173,45 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'table',
-	        { className: 'customer-list table table-striped' },
+	        'div',
+	        null,
+	        _react2.default.createElement(_header2.default, { title: 'Customers' }),
 	        _react2.default.createElement(
-	          'thead',
-	          null,
+	          'table',
+	          { className: 'customer-list table table-striped' },
 	          _react2.default.createElement(
-	            'tr',
+	            'thead',
 	            null,
 	            _react2.default.createElement(
-	              'th',
+	              'tr',
 	              null,
-	              'ID'
-	            ),
-	            _react2.default.createElement(
-	              'th',
-	              null,
-	              'Name'
-	            ),
-	            _react2.default.createElement(
-	              'th',
-	              null,
-	              'Address'
-	            ),
-	            _react2.default.createElement(
-	              'th',
-	              null,
-	              'Phone'
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'ID'
+	              ),
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'Name'
+	              ),
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'Address'
+	              ),
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'Phone'
+	              )
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'tbody',
+	            null,
+	            this.props.customers.map(this.renderProduct)
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'tbody',
-	          null,
-	          this.props.customers.map(this.renderProduct)
 	        )
 	      );
 	    }
@@ -30234,6 +30249,10 @@
 	var _actions = __webpack_require__(273);
 
 	var actions = _interopRequireWildcard(_actions);
+
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -30286,35 +30305,40 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'table',
-	        { className: 'product-list table table-striped' },
+	        'div',
+	        null,
+	        _react2.default.createElement(_header2.default, { title: 'Products' }),
 	        _react2.default.createElement(
-	          'thead',
-	          null,
+	          'table',
+	          { className: 'product-list table table-striped' },
 	          _react2.default.createElement(
-	            'tr',
+	            'thead',
 	            null,
 	            _react2.default.createElement(
-	              'th',
+	              'tr',
 	              null,
-	              'ID'
-	            ),
-	            _react2.default.createElement(
-	              'th',
-	              null,
-	              'Name'
-	            ),
-	            _react2.default.createElement(
-	              'th',
-	              null,
-	              'Price'
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'ID'
+	              ),
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'Name'
+	              ),
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'Price'
+	              )
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'tbody',
+	            null,
+	            this.props.products.map(this.renderProduct)
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'tbody',
-	          null,
-	          this.props.products.map(this.renderProduct)
 	        )
 	      );
 	    }
@@ -30352,6 +30376,10 @@
 	var _actions = __webpack_require__(273);
 
 	var actions = _interopRequireWildcard(_actions);
+
+	var _header = __webpack_require__(271);
+
+	var _header2 = _interopRequireDefault(_header);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -30402,6 +30430,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'add-invoice' },
+	        _react2.default.createElement(_header2.default, { title: 'Add Invoice' }),
 	        _react2.default.createElement(
 	          'form',
 	          { onSubmit: handleSubmit(this.handleFormSubmit.bind(this)) },
