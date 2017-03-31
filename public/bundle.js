@@ -30241,6 +30241,7 @@
 	        _react2.default.createElement(
 	          'td',
 	          null,
+	          '$',
 	          product.price
 	        )
 	      );
