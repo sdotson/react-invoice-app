@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+
 import * as actions from '../actions';
+import AddInvoiceItemForm from './add_invoice_item_form';
 
 class AddInvoice extends Component {
   componentWillMount() {
@@ -62,23 +64,7 @@ class AddInvoice extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <select name="product" className="form-control">
-                  {products.map(product =>
-                    <option value={product.id} key={product.id}>{product.name}</option>)}
-                </select>
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-            </tr>
+            <AddInvoiceItemForm />
           </tbody>
         </table>
       </div>

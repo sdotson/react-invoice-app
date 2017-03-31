@@ -30499,6 +30499,10 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
+	var _add_invoice_item_form = __webpack_require__(522);
+
+	var _add_invoice_item_form2 = _interopRequireDefault(_add_invoice_item_form);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -30658,28 +30662,7 @@
 	          _react2.default.createElement(
 	            'tbody',
 	            null,
-	            _react2.default.createElement(
-	              'tr',
-	              null,
-	              _react2.default.createElement(
-	                'td',
-	                null,
-	                _react2.default.createElement(
-	                  'select',
-	                  { name: 'product', className: 'form-control' },
-	                  products.map(function (product) {
-	                    return _react2.default.createElement(
-	                      'option',
-	                      { value: product.id, key: product.id },
-	                      product.name
-	                    );
-	                  })
-	                )
-	              ),
-	              _react2.default.createElement('td', null),
-	              _react2.default.createElement('td', null),
-	              _react2.default.createElement('td', null)
-	            )
+	            _react2.default.createElement(_add_invoice_item_form2.default, null)
 	          )
 	        )
 	      );
@@ -41111,6 +41094,117 @@
 	};
 
 	var _types = __webpack_require__(299);
+
+/***/ },
+/* 522 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(160);
+
+	var _reduxForm = __webpack_require__(307);
+
+	var _actions = __webpack_require__(273);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AddInvoiceItemForm = function (_Component) {
+	  _inherits(AddInvoiceItemForm, _Component);
+
+	  function AddInvoiceItemForm() {
+	    _classCallCheck(this, AddInvoiceItemForm);
+
+	    return _possibleConstructorReturn(this, (AddInvoiceItemForm.__proto__ || Object.getPrototypeOf(AddInvoiceItemForm)).apply(this, arguments));
+	  }
+
+	  _createClass(AddInvoiceItemForm, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.props.fetchProducts();
+	    }
+	  }, {
+	    key: 'handleFormSubmit',
+	    value: function handleFormSubmit(input) {
+	      console.log('form submitted', input);
+	      // this.props.signinUser({ email, password });
+	    }
+	  }, {
+	    key: 'onSelectChange',
+	    value: function onSelectChange(event) {
+	      console.log(event.target.value);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props,
+	          products = _props.products,
+	          handleSubmit = _props.handleSubmit;
+
+	      return _react2.default.createElement(
+	        'tr',
+	        null,
+	        _react2.default.createElement(
+	          'td',
+	          null,
+	          _react2.default.createElement(
+	            'form',
+	            { onSubmit: handleSubmit(this.handleFormSubmit.bind(this)) },
+	            _react2.default.createElement(
+	              _reduxForm.Field,
+	              { name: 'product', component: 'select', className: 'form-control', onChange: this.handleFormSubmit.bind(this) },
+	              products.map(function (product) {
+	                return _react2.default.createElement(
+	                  'option',
+	                  { value: product.id, key: product.id },
+	                  product.name
+	                );
+	              })
+	            )
+	          )
+	        ),
+	        _react2.default.createElement('td', null),
+	        _react2.default.createElement('td', null),
+	        _react2.default.createElement('td', null)
+	      );
+	    }
+	  }]);
+
+	  return AddInvoiceItemForm;
+	}(_react.Component);
+
+	AddInvoiceItemForm = (0, _reduxForm.reduxForm)({
+	  form: 'addinvoiceitem'
+	})(AddInvoiceItemForm);
+
+	function mapStateToProps(state) {
+	  return {
+	    currInvoiceItem: state.currInvoiceItem,
+	    products: state.products
+	  };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(AddInvoiceItemForm);
 
 /***/ }
 /******/ ]);
