@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
 import invoicesReducer from './invoices';
+import invoiceItemsReducer from './invoice_items';
 import customersReducer from './customers';
 import productsReducer from './products';
 import product from './product';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   selectedCustomer: selectedCustomerReducer,
   product: product,
+  invoiceItems: invoiceItemsReducer,
   form
 });
 

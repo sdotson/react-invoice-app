@@ -41125,6 +41125,10 @@
 
 	var _invoices2 = _interopRequireDefault(_invoices);
 
+	var _invoice_items = __webpack_require__(525);
+
+	var _invoice_items2 = _interopRequireDefault(_invoice_items);
+
 	var _customers = __webpack_require__(520);
 
 	var _customers2 = _interopRequireDefault(_customers);
@@ -41149,6 +41153,7 @@
 	  products: _products2.default,
 	  selectedCustomer: _selected_customer2.default,
 	  product: _product2.default,
+	  invoiceItems: _invoice_items2.default,
 	  form: _reduxForm.reducer
 	});
 
@@ -41282,6 +41287,34 @@
 	};
 
 	var _types = __webpack_require__(299);
+
+/***/ },
+/* 524 */,
+/* 525 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _types.ADD_INVOICE_ITEM:
+	      console.log('add_invoice_item', action);
+	      return [].concat(_toConsumableArray(state), _toConsumableArray(action.payload.data));
+	  }
+
+	  return state;
+	};
+
+	var _types = __webpack_require__(299);
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 /***/ }
 /******/ ]);
