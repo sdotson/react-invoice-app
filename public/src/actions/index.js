@@ -82,3 +82,15 @@ export function setProduct(productID) {
     payload: request
   };
 }
+
+export function addInvoiceItem(id, item) {
+  const request = axios({
+    method: 'post',
+    url: `${ROOT_URL}invoices/${id}/items`
+  });
+
+  return {
+    type: ADD_INVOICE_ITEM,
+    payload: request
+  };
+}

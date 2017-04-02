@@ -28532,6 +28532,7 @@
 	exports.selectCustomer = selectCustomer;
 	exports.fetchProducts = fetchProducts;
 	exports.setProduct = setProduct;
+	exports.addInvoiceItem = addInvoiceItem;
 
 	var _axios = __webpack_require__(274);
 
@@ -28611,6 +28612,18 @@
 
 	  return {
 	    type: _types.SET_PRODUCT,
+	    payload: request
+	  };
+	}
+
+	function addInvoiceItem(id, item) {
+	  var request = (0, _axios2.default)({
+	    method: 'post',
+	    url: ROOT_URL + 'invoices/' + id + '/items'
+	  });
+
+	  return {
+	    type: ADD_INVOICE_ITEM,
 	    payload: request
 	  };
 	}
