@@ -5,7 +5,8 @@ import {
   ADD_INVOICE,
   FETCH_CUSTOMERS,
   SELECT_CUSTOMER,
-  FETCH_PRODUCTS
+  FETCH_PRODUCTS,
+  SET_PRODUCT
 } from './types';
 
 const ROOT_URL = 'http://localhost:8000/api/';
@@ -66,6 +67,18 @@ export function fetchProducts() {
 
   return {
     type: FETCH_PRODUCTS,
+    payload: request
+  };
+}
+
+export function setProduct(productID) {
+  const request = axios({
+    method: 'get',
+    url: `${ROOT_URL}products/${productID}`
+  });
+
+  return {
+    type: SET_PRODUCT,
     payload: request
   };
 }

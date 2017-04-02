@@ -6,3 +6,6 @@ export const FETCH_CUSTOMERS = 'fetch_customers';
 export const SELECT_CUSTOMER = 'select_customer';
 
 export const FETCH_PRODUCTS = 'fetch_products';
+export const SET_PRODUCT = 'set_product';
+
+export const ADD_INVOICE_ITEM = 'add_invoice_item';

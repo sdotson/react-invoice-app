@@ -6,10 +6,12 @@ import * as actions from '../actions';
 class AddInvoiceItemForm extends Component {
   componentWillMount() {
     this.props.fetchProducts();
+    this.props.setProduct(1);
   }
 
-  handleFormSubmit(input) {
-    console.log('form submitted', input);
+  handleFormSubmit(event) {
+    console.log('form submitted', event);
+    this.props.setProduct(event.target.value);
     // this.props.signinUser({ email, password });
   }
 
@@ -22,21 +24,21 @@ class AddInvoiceItemForm extends Component {
     return (
       <tr>
         <td>
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <Field name="product" component="select" className="form-control" onChange={this.handleFormSubmit.bind(this)}>
           {products.map(product =>
             <option value={product.id} key={product.id}>{product.name}</option>)}
           </Field>
-        </form>
         </td>
         <td>
-
+          <Field name="" component="input" className="form-control" />
         </td>
         <td>
-
+          ${this.props.currProduct.price}
         </td>
         <td>
-
+          <button type="button" className="btn btn-default" aria-label="Left Align">
+            <span className="lyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
         </td>
       </tr>
     );
@@ -50,6 +52,7 @@ AddInvoiceItemForm = reduxForm({
 function mapStateToProps(state) {
   return {
     currInvoiceItem: state.currInvoiceItem,
+    currProduct: state.product,
     products: state.products
   };
 }

@@ -3,6 +3,7 @@ import { reducer as form } from 'redux-form';
 import invoicesReducer from './invoices';
 import customersReducer from './customers';
 import productsReducer from './products';
+import product from './product';
 import selectedCustomerReducer from './selected_customer';
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   customers: customersReducer,
   products: productsReducer,
   selectedCustomer: selectedCustomerReducer,
+  product: product,
   form
 });
 

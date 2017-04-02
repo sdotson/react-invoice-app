@@ -95,7 +95,7 @@
 
 	var _add_invoice2 = _interopRequireDefault(_add_invoice);
 
-	var _reducers = __webpack_require__(517);
+	var _reducers = __webpack_require__(518);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -28531,6 +28531,7 @@
 	exports.fetchCustomers = fetchCustomers;
 	exports.selectCustomer = selectCustomer;
 	exports.fetchProducts = fetchProducts;
+	exports.setProduct = setProduct;
 
 	var _axios = __webpack_require__(274);
 
@@ -28598,6 +28599,18 @@
 
 	  return {
 	    type: _types.FETCH_PRODUCTS,
+	    payload: request
+	  };
+	}
+
+	function setProduct(productID) {
+	  var request = (0, _axios2.default)({
+	    method: 'get',
+	    url: ROOT_URL + 'products/' + productID
+	  });
+
+	  return {
+	    type: _types.SET_PRODUCT,
 	    payload: request
 	  };
 	}
@@ -30108,6 +30121,9 @@
 	var SELECT_CUSTOMER = exports.SELECT_CUSTOMER = 'select_customer';
 
 	var FETCH_PRODUCTS = exports.FETCH_PRODUCTS = 'fetch_products';
+	var SET_PRODUCT = exports.SET_PRODUCT = 'set_product';
+
+	var ADD_INVOICE_ITEM = exports.ADD_INVOICE_ITEM = 'add_invoice_item';
 
 /***/ },
 /* 300 */
@@ -30499,7 +30515,7 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _add_invoice_item_form = __webpack_require__(522);
+	var _add_invoice_item_form = __webpack_require__(517);
 
 	var _add_invoice_item_form2 = _interopRequireDefault(_add_invoice_item_form);
 
@@ -40961,150 +40977,6 @@
 	  value: true
 	});
 
-	var _redux = __webpack_require__(167);
-
-	var _reduxForm = __webpack_require__(307);
-
-	var _invoices = __webpack_require__(518);
-
-	var _invoices2 = _interopRequireDefault(_invoices);
-
-	var _customers = __webpack_require__(519);
-
-	var _customers2 = _interopRequireDefault(_customers);
-
-	var _products = __webpack_require__(520);
-
-	var _products2 = _interopRequireDefault(_products);
-
-	var _selected_customer = __webpack_require__(521);
-
-	var _selected_customer2 = _interopRequireDefault(_selected_customer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var rootReducer = (0, _redux.combineReducers)({
-	  invoices: _invoices2.default,
-	  customers: _customers2.default,
-	  products: _products2.default,
-	  selectedCustomer: _selected_customer2.default,
-	  form: _reduxForm.reducer
-	});
-
-	exports.default = rootReducer;
-
-/***/ },
-/* 518 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _types.FETCH_INVOICES:
-	      return action.payload.data;
-	    case _types.ADD_INVOICE:
-	      return [].concat(_toConsumableArray(state), [action.payload.data]);
-	  }
-
-	  return state;
-	};
-
-	var _types = __webpack_require__(299);
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-/***/ },
-/* 519 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _types.FETCH_CUSTOMERS:
-	      return action.payload.data;
-	  }
-
-	  return state;
-	};
-
-	var _types = __webpack_require__(299);
-
-/***/ },
-/* 520 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _types.FETCH_PRODUCTS:
-	      return action.payload.data;
-	  }
-
-	  return state;
-	};
-
-	var _types = __webpack_require__(299);
-
-/***/ },
-/* 521 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _types.SELECT_CUSTOMER:
-	      return _extends({}, state, action.payload.data);
-	  }
-
-	  return state;
-	};
-
-	var _types = __webpack_require__(299);
-
-/***/ },
-/* 522 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
@@ -41142,11 +41014,13 @@
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
 	      this.props.fetchProducts();
+	      this.props.setProduct(1);
 	    }
 	  }, {
 	    key: 'handleFormSubmit',
-	    value: function handleFormSubmit(input) {
-	      console.log('form submitted', input);
+	    value: function handleFormSubmit(event) {
+	      console.log('form submitted', event);
+	      this.props.setProduct(event.target.value);
 	      // this.props.signinUser({ email, password });
 	    }
 	  }, {
@@ -41168,24 +41042,37 @@
 	          'td',
 	          null,
 	          _react2.default.createElement(
-	            'form',
-	            { onSubmit: handleSubmit(this.handleFormSubmit.bind(this)) },
-	            _react2.default.createElement(
-	              _reduxForm.Field,
-	              { name: 'product', component: 'select', className: 'form-control', onChange: this.handleFormSubmit.bind(this) },
-	              products.map(function (product) {
-	                return _react2.default.createElement(
-	                  'option',
-	                  { value: product.id, key: product.id },
-	                  product.name
-	                );
-	              })
-	            )
+	            _reduxForm.Field,
+	            { name: 'product', component: 'select', className: 'form-control', onChange: this.handleFormSubmit.bind(this) },
+	            products.map(function (product) {
+	              return _react2.default.createElement(
+	                'option',
+	                { value: product.id, key: product.id },
+	                product.name
+	              );
+	            })
 	          )
 	        ),
-	        _react2.default.createElement('td', null),
-	        _react2.default.createElement('td', null),
-	        _react2.default.createElement('td', null)
+	        _react2.default.createElement(
+	          'td',
+	          null,
+	          _react2.default.createElement(_reduxForm.Field, { name: '', component: 'input', className: 'form-control' })
+	        ),
+	        _react2.default.createElement(
+	          'td',
+	          null,
+	          '$',
+	          this.props.currProduct.price
+	        ),
+	        _react2.default.createElement(
+	          'td',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'button', className: 'btn btn-default', 'aria-label': 'Left Align' },
+	            _react2.default.createElement('span', { className: 'lyphicon glyphicon-plus', 'aria-hidden': 'true' })
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -41200,11 +41087,188 @@
 	function mapStateToProps(state) {
 	  return {
 	    currInvoiceItem: state.currInvoiceItem,
+	    currProduct: state.product,
 	    products: state.products
 	  };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(AddInvoiceItemForm);
+
+/***/ },
+/* 518 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(167);
+
+	var _reduxForm = __webpack_require__(307);
+
+	var _invoices = __webpack_require__(519);
+
+	var _invoices2 = _interopRequireDefault(_invoices);
+
+	var _customers = __webpack_require__(520);
+
+	var _customers2 = _interopRequireDefault(_customers);
+
+	var _products = __webpack_require__(521);
+
+	var _products2 = _interopRequireDefault(_products);
+
+	var _product = __webpack_require__(523);
+
+	var _product2 = _interopRequireDefault(_product);
+
+	var _selected_customer = __webpack_require__(522);
+
+	var _selected_customer2 = _interopRequireDefault(_selected_customer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var rootReducer = (0, _redux.combineReducers)({
+	  invoices: _invoices2.default,
+	  customers: _customers2.default,
+	  products: _products2.default,
+	  selectedCustomer: _selected_customer2.default,
+	  product: _product2.default,
+	  form: _reduxForm.reducer
+	});
+
+	exports.default = rootReducer;
+
+/***/ },
+/* 519 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _types.FETCH_INVOICES:
+	      return action.payload.data;
+	    case _types.ADD_INVOICE:
+	      return [].concat(_toConsumableArray(state), [action.payload.data]);
+	  }
+
+	  return state;
+	};
+
+	var _types = __webpack_require__(299);
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+/***/ },
+/* 520 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _types.FETCH_CUSTOMERS:
+	      return action.payload.data;
+	  }
+
+	  return state;
+	};
+
+	var _types = __webpack_require__(299);
+
+/***/ },
+/* 521 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _types.FETCH_PRODUCTS:
+	      return action.payload.data;
+	  }
+
+	  return state;
+	};
+
+	var _types = __webpack_require__(299);
+
+/***/ },
+/* 522 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _types.SELECT_CUSTOMER:
+	      return _extends({}, state, action.payload.data);
+	  }
+
+	  return state;
+	};
+
+	var _types = __webpack_require__(299);
+
+/***/ },
+/* 523 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _types.SET_PRODUCT:
+	      console.log('set_product', action);
+	      return _extends({}, state, action.payload.data);
+	  }
+
+	  return state;
+	};
+
+	var _types = __webpack_require__(299);
 
 /***/ }
 /******/ ]);
