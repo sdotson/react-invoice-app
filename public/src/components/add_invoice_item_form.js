@@ -51,7 +51,6 @@ AddInvoiceItemForm = reduxForm({
 
 function mapStateToProps(state) {
   return {
-    currInvoiceItem: state.currInvoiceItem,
     currProduct: state.product,
     products: state.products
   };

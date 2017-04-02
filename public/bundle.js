@@ -30532,6 +30532,10 @@
 
 	var _add_invoice_item_form2 = _interopRequireDefault(_add_invoice_item_form);
 
+	var _add_customer = __webpack_require__(526);
+
+	var _add_customer2 = _interopRequireDefault(_add_customer);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -30554,7 +30558,6 @@
 	  _createClass(AddInvoice, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchCustomers();
 	      this.props.fetchProducts();
 	    }
 	  }, {
@@ -30562,12 +30565,6 @@
 	    value: function handleFormSubmit(input) {
 	      console.log('form submitted', input);
 	      // this.props.signinUser({ email, password });
-	    }
-	  }, {
-	    key: 'selectCustomer',
-	    value: function selectCustomer(customer) {
-	      console.log('selectCustomer triggered', customer.currentTarget.value);
-	      this.props.selectCustomer(customer.currentTarget.value);
 	    }
 	  }, {
 	    key: 'render',
@@ -30581,77 +30578,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'add-invoice' },
-	        _react2.default.createElement(
-	          'form',
-	          { onSubmit: handleSubmit(this.handleFormSubmit.bind(this)) },
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Create new customer'
-	          ),
-	          _react2.default.createElement(
-	            'fieldset',
-	            { className: 'form-group' },
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Name:'
-	            ),
-	            _react2.default.createElement(_reduxForm.Field, { name: 'name', component: 'input', className: 'form-control' })
-	          ),
-	          _react2.default.createElement(
-	            'fieldset',
-	            { className: 'form-group' },
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Address:'
-	            ),
-	            _react2.default.createElement(_reduxForm.Field, { name: 'address', component: 'input', className: 'form-control' })
-	          ),
-	          _react2.default.createElement(
-	            'fieldset',
-	            { className: 'form-group' },
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Phone:'
-	            ),
-	            _react2.default.createElement(_reduxForm.Field, { name: 'phone', component: 'input', className: 'form-control' })
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Or select existing customer'
-	          ),
-	          _react2.default.createElement(
-	            'fieldset',
-	            { className: 'form-group' },
-	            _react2.default.createElement(
-	              _reduxForm.Field,
-	              { name: 'customer', component: 'select', className: 'form-control', onChange: this.selectCustomer.bind(this) },
-	              customers.map(function (customer) {
-	                return _react2.default.createElement(
-	                  'option',
-	                  { value: customer.id, key: customer.id },
-	                  customer.name
-	                );
-	              })
-	            ),
-	            selectedCustomer.phone,
-	            selectedCustomer.address
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Discount Amount'
-	          ),
-	          _react2.default.createElement(
-	            'fieldset',
-	            { className: 'form-group' },
-	            _react2.default.createElement(_reduxForm.Field, { name: 'discount', component: 'input', className: 'form-control' })
-	          )
-	        ),
+	        _react2.default.createElement(_add_customer2.default, null),
 	        _react2.default.createElement(
 	          'h3',
 	          null,
@@ -41099,7 +41026,6 @@
 
 	function mapStateToProps(state) {
 	  return {
-	    currInvoiceItem: state.currInvoiceItem,
 	    currProduct: state.product,
 	    products: state.products
 	  };
@@ -41315,6 +41241,169 @@
 	var _types = __webpack_require__(299);
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+/***/ },
+/* 526 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(160);
+
+	var _reduxForm = __webpack_require__(307);
+
+	var _actions = __webpack_require__(273);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AddCustomerForm = function (_Component) {
+	  _inherits(AddCustomerForm, _Component);
+
+	  function AddCustomerForm() {
+	    _classCallCheck(this, AddCustomerForm);
+
+	    return _possibleConstructorReturn(this, (AddCustomerForm.__proto__ || Object.getPrototypeOf(AddCustomerForm)).apply(this, arguments));
+	  }
+
+	  _createClass(AddCustomerForm, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.props.fetchCustomers();
+	    }
+	  }, {
+	    key: 'handleFormSubmit',
+	    value: function handleFormSubmit(event) {
+	      console.log('form submitted', event);
+	      this.props.setProduct(event.target.value);
+	      // this.props.signinUser({ email, password });
+	    }
+	  }, {
+	    key: 'selectCustomer',
+	    value: function selectCustomer(customer) {
+	      console.log('selectCustomer triggered', customer.currentTarget.value);
+	      this.props.selectCustomer(customer.currentTarget.value);
+	    }
+	  }, {
+	    key: 'onSelectChange',
+	    value: function onSelectChange(event) {
+	      console.log(event.target.value);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props,
+	          products = _props.products,
+	          handleSubmit = _props.handleSubmit,
+	          customers = _props.customers;
+
+	      return _react2.default.createElement(
+	        'form',
+	        { onSubmit: handleSubmit(this.handleFormSubmit.bind(this)) },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Select existing customer'
+	        ),
+	        _react2.default.createElement(
+	          'fieldset',
+	          { className: 'form-group' },
+	          _react2.default.createElement(
+	            _reduxForm.Field,
+	            { name: 'customer', component: 'select', className: 'form-control', onChange: this.selectCustomer.bind(this) },
+	            customers.map(function (customer) {
+	              return _react2.default.createElement(
+	                'option',
+	                { value: customer.id, key: customer.id },
+	                customer.name
+	              );
+	            })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Or create new customer'
+	        ),
+	        _react2.default.createElement(
+	          'fieldset',
+	          { className: 'form-group' },
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Name:'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'name', component: 'input', className: 'form-control' })
+	        ),
+	        _react2.default.createElement(
+	          'fieldset',
+	          { className: 'form-group' },
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Address:'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'address', component: 'input', className: 'form-control' })
+	        ),
+	        _react2.default.createElement(
+	          'fieldset',
+	          { className: 'form-group' },
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Phone:'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'phone', component: 'input', className: 'form-control' })
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Discount Amount'
+	        ),
+	        _react2.default.createElement(
+	          'fieldset',
+	          { className: 'form-group' },
+	          _react2.default.createElement(_reduxForm.Field, { name: 'discount', component: 'input', className: 'form-control' })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return AddCustomerForm;
+	}(_react.Component);
+
+	AddCustomerForm = (0, _reduxForm.reduxForm)({
+	  form: 'addinvoiceitem'
+	})(AddCustomerForm);
+
+	function mapStateToProps(state) {
+	  return {
+	    currProduct: state.product,
+	    products: state.products,
+	    customers: state.customers
+	  };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(AddCustomerForm);
 
 /***/ }
 /******/ ]);
