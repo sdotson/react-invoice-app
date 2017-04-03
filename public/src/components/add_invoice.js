@@ -16,6 +16,11 @@ class AddInvoice extends Component {
     // this.props.signinUser({ email, password });
   }
 
+  // note to self... make this a multi-step form.
+  // first choose or create customer, create new invoice
+  // then proceed to next step with customer info and invoice info at top
+  // to add invoice items
+
   render() {
     const { handleSubmit, customers, products, selectedCustomer } = this.props;
     return (
