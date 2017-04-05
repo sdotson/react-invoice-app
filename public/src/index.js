@@ -9,7 +9,8 @@ import App from './components/app';
 import Customers from './pages/customers';
 import Products from './pages/products';
 import Invoices from './pages/invoices';
-import AddInvoice from './pages/add_invoice';
+import SelectInvoiceCustomer from './pages/set_invoice_customer';
+import CreateInvoiceCustomer from './pages/create_invoice_customer';
 
 import reducers from './reducers';
 
@@ -23,7 +24,8 @@ ReactDOM.render(
         <Route path="invoices" component={Invoices}></Route>
         <Route path="customers" component={Customers}></Route>
         <Route path="products" component={Products}></Route>
-        <Route path="add-invoice" component={AddInvoice}></Route>
+        <Route path="add-invoice/select-customer" component={SelectInvoiceCustomer}></Route>
+        <Route path="add-invoice/create-customer" component={CreateInvoiceCustomer}></Route>
       </Route>
     </Router>
   </Provider>

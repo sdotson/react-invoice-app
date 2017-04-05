@@ -25,7 +25,7 @@ class InvoiceList extends Component {
         <div className="invoice-list">
           {this.props.invoices.length > 0 ? this.props.invoices.map(this.renderInvoice) : "There are no invoices at the moment."}
           <div>
-            <Link to="/add-invoice">
+            <Link to="/add-invoice/select-customer">
               <button type="button" className="btn btn-primary">Add Invoice</button>
             </Link>
           </div>

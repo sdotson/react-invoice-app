@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router';
 import * as actions from '../actions';
 
-class AddCustomerForm extends Component {
+class CreateCustomer extends Component {
   componentWillMount() {
     this.props.fetchCustomers();
   }
@@ -27,14 +28,6 @@ class AddCustomerForm extends Component {
     const { products, handleSubmit, customers } = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-        <h3>Select existing customer</h3>
-        <fieldset className="form-group">
-          <Field name="customer" component="select" className="form-control" onChange={this.selectCustomer.bind(this)}>
-            {customers.map(customer =>
-              <option value={customer.id} key={customer.id}>{customer.name}</option>)}
-              </Field>
-            </fieldset>
-        <h3>Or create new customer</h3>
         <fieldset className="form-group">
           <label>Name:</label>
           <Field name="name" component="input" className="form-control" />
@@ -47,18 +40,20 @@ class AddCustomerForm extends Component {
           <label>Phone:</label>
           <Field name="phone" component="input" className="form-control" />
         </fieldset>
-        <h3>Discount Amount</h3>
-        <fieldset className="form-group">
-          <Field name="discount" component="input" className="form-control" />
-        </fieldset>
+        <button type="button" className="btn btn-primary" aria-label="Left Align">
+          Create Customer
+        </button>
+        <Link to="/add-invoice/select-customer" className="btn btn-secondary" aria-label="Left Align">
+          Select Existing Customer
+        </Link>
       </form>
     );
   }
 }
 
-AddCustomerForm = reduxForm({
-  form: 'addinvoiceitem'
-})(AddCustomerForm);
+CreateCustomer = reduxForm({
+  form: 'setcustomer'
+})(CreateCustomer);
 
 function mapStateToProps(state) {
   return {
@@ -68,4 +63,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, actions)(AddCustomerForm);
+export default connect(mapStateToProps, actions)(CreateCustomer);
