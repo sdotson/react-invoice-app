@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app & webpack --progress --colors --watch"
+    "start": "node app & webpack --progress --colors --watch",
+    "seed": "node seed_database"
   },
   "dependencies": {
     "axios": "^0.15.3",
