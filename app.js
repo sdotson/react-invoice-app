@@ -3,7 +3,9 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     cors = require('cors'),
-    _ = require('lodash');
+    Sequelize = require('sequelize'),
+    _ = require('lodash'),
+    db_models = require('./db_models');
 
 var app = module.exports = express();
 app.set('port', process.env.PORT || 8000);
