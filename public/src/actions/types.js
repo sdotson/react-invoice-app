@@ -4,6 +4,7 @@ export const ADD_INVOICE = 'add_invoice';
 
 export const FETCH_CUSTOMERS = 'fetch_customers';
 export const SELECT_CUSTOMER = 'select_customer';
+export const SELECT_INVOICE_CUSTOMER = 'select_invoice_customer';
 
 export const FETCH_PRODUCTS = 'fetch_products';
 export const SET_PRODUCT = 'set_product';

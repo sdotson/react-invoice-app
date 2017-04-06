@@ -5,6 +5,7 @@ import {
   ADD_INVOICE,
   FETCH_CUSTOMERS,
   SELECT_CUSTOMER,
+  SELECT_INVOICE_CUSTOMER,
   FETCH_PRODUCTS,
   SET_PRODUCT
 } from './types';
@@ -47,7 +48,7 @@ export function fetchCustomers() {
   };
 }
 
-export function selectCustomer(id) {
+export function selectCustomer({id}) {
   const request = axios({
     method: 'get',
     url: `${ROOT_URL}customers/${id}`
@@ -91,6 +92,18 @@ export function addInvoiceItem(id, item) {
 
   return {
     type: ADD_INVOICE_ITEM,
+    payload: request
+  };
+}
+
+export function selectInvoiceCustomer(id) {
+  const request = axios({
+    method: 'get',
+    url: `${ROOT_URL}customers/${id}`
+  });
+
+  return {
+    type: SELECT_INVOICE_CUSTOMER,
     payload: request
   };
 }
