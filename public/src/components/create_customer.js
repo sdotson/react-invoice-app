@@ -44,7 +44,7 @@ class CreateCustomer extends Component {
           Create Customer
         </button>
         <Link to="/add-invoice/select-customer" className="btn btn-secondary" aria-label="Left Align">
-          Select Existing Customer
+          Or Select Existing Customer
         </Link>
       </form>
     );
@@ -52,7 +52,7 @@ class CreateCustomer extends Component {
 }
 
 CreateCustomer = reduxForm({
-  form: 'setcustomer'
+  form: 'createcustomer'
 })(CreateCustomer);
 
 function mapStateToProps(state) {

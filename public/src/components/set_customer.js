@@ -37,7 +37,7 @@ class SetCustomer extends Component {
           Select Customer
         </button>
         <Link to="/add-invoice/create-customer" className="btn btn-secondary" aria-label="Left Align">
-          Create New Customer
+          Or Create New Customer
         </Link>
       </form>
     );
