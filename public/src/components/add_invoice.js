@@ -7,7 +7,7 @@ import AddInvoiceItemForm from './add_invoice_item_form';
 
 class AddInvoice extends Component {
   componentWillMount() {
-    // this.props.addInvoice();
+    this.props.addInvoice(this.props.selectedCustomer.id);
   }
 
   handleFormSubmit(input) {
@@ -21,10 +21,12 @@ class AddInvoice extends Component {
   // to add invoice items
 
   render() {
-    const { handleSubmit, products, selectedCustomer } = this.props;
+    const { handleSubmit, products, selectedCustomer, currentInvoice } = this.props;
     return (
       <div className="add-invoice">
-        <h3>Invoice Items</h3>
+        <p>Invoice #{currentInvoice.id}<br />
+          {selectedCustomer.name}<br />
+        {selectedCustomer.address}</p>
         <table className="table table-striped">
           <thead>
             <tr>

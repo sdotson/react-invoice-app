@@ -15,8 +15,15 @@ class AddInvoiceItemForm extends Component {
     // this.props.signinUser({ email, password });
   }
 
-  onSelectChange(event) {
-    console.log(event.target.value);
+  addNewItem() {
+    const invoiceID = this.props.currentInvoice.id,
+      newItem = {
+        invoice_id: invoiceID,
+        product_id: this.props.currProduct.id,
+        quantity:
+      };
+    
+    this.props.addInvoiceItem(this.props.currentInvoice.id, newItem);
   }
 
   render() {
@@ -30,7 +37,7 @@ class AddInvoiceItemForm extends Component {
           </Field>
         </td>
         <td>
-          <Field name="" component="input" className="form-control" />
+          <Field name="quantity" component="input" className="form-control" />
         </td>
         <td>
           ${this.props.currProduct.price}
@@ -52,7 +59,9 @@ AddInvoiceItemForm = reduxForm({
 function mapStateToProps(state) {
   return {
     currProduct: state.product,
-    products: state.products
+    products: state.products,
+    customer: state.selectedCustomer,
+    invoice: state.currentInvoice
   };
 }
 
