@@ -5,7 +5,7 @@ import Header from '../components/header';
 const AddInvoice = (props) => {
   return (
     <div>
-      <Header title="Add Invoice" />
+      <Header title="Add Invoice: Items" />
       <AddInvoiceForm />
     </div>
   );

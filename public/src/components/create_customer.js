@@ -6,22 +6,18 @@ import * as actions from '../actions';
 
 class CreateCustomer extends Component {
   componentWillMount() {
-    this.props.fetchCustomers();
+
   }
 
-  handleFormSubmit(event) {
-    console.log('form submitted', event);
-    this.props.setProduct(event.target.value);
+  handleFormSubmit(values) {
+    console.log('form submitted', values);
+    this.props.createCustomer(values);
     // this.props.signinUser({ email, password });
   }
 
   selectCustomer(customer) {
     console.log('selectCustomer triggered', customer.currentTarget.value);
     this.props.selectCustomer(customer.currentTarget.value);
-  }
-
-  onSelectChange(event) {
-    console.log(event.target.value);
   }
 
   render() {

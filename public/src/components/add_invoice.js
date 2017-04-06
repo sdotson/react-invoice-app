@@ -4,11 +4,10 @@ import { Field, reduxForm } from 'redux-form';
 
 import * as actions from '../actions';
 import AddInvoiceItemForm from './add_invoice_item_form';
-import AddCustomerForm from './add_customer';
 
 class AddInvoice extends Component {
   componentWillMount() {
-    this.props.fetchProducts();
+    // this.props.addInvoice();
   }
 
   handleFormSubmit(input) {
@@ -22,10 +21,9 @@ class AddInvoice extends Component {
   // to add invoice items
 
   render() {
-    const { handleSubmit, customers, products, selectedCustomer } = this.props;
+    const { handleSubmit, products, selectedCustomer } = this.props;
     return (
       <div className="add-invoice">
-        <AddCustomerForm />
         <h3>Invoice Items</h3>
         <table className="table table-striped">
           <thead>
@@ -50,10 +48,11 @@ AddInvoice = reduxForm({
 })(AddInvoice);
 
 function mapStateToProps(state) {
+  console.log('state',state);
   return {
-    customers: state.customers,
     products: state.products,
-    selectedCustomer: state.selectedCustomer
+    selectedCustomer: state.selectedCustomer,
+    currentInvoice: state.currentInvoice
   };
 }
 

@@ -10,9 +10,9 @@ class SetCustomer extends Component {
     this.props.fetchCustomers();
   }
 
-  handleFormSubmit(values) {
-    console.log('form submitted', values);
-    this.props.selectCustomer(values);
+  handleFormSubmit({id}) {
+    console.log('form submitted', id);
+    this.props.selectCustomer(id);
   }
 
   render() {

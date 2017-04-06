@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 import {
   FETCH_INVOICES,
   ADD_INVOICE,
   FETCH_CUSTOMERS,
   SELECT_CUSTOMER,
+  CREATE_CUSTOMER,
   SELECT_INVOICE_CUSTOMER,
   FETCH_PRODUCTS,
   SET_PRODUCT
@@ -24,11 +26,16 @@ export function fetchInvoices() {
   };
 }
 
-export function addInvoice(invoice) {
+export function addInvoice(customerID) {
   const request = axios({
     method: 'post',
-    url: `${ROOT_URL}invoices`
+    url: `${ROOT_URL}invoices`,
+    data: {
+      customer_id: customerID
+    }
   });
+
+  browserHistory.push('/add-invoice/items');
 
   return {
     type: ADD_INVOICE,
@@ -48,14 +55,30 @@ export function fetchCustomers() {
   };
 }
 
-export function selectCustomer({id}) {
+export function selectCustomer(id) {
   const request = axios({
     method: 'get',
     url: `${ROOT_URL}customers/${id}`
   });
 
+  browserHistory.push('/add-invoice/items');
+
   return {
     type: SELECT_CUSTOMER,
+    payload: request
+  };
+}
+
+export function createCustomer() {
+  const request = axios({
+    method: 'post',
+    url: `${ROOT_URL}customers`
+  });
+
+  browserHistory.push('/add-invoice/items');
+
+  return {
+    type: CREATE_CUSTOMER,
     payload: request
   };
 }
@@ -92,18 +115,6 @@ export function addInvoiceItem(id, item) {
 
   return {
     type: ADD_INVOICE_ITEM,
-    payload: request
-  };
-}
-
-export function selectInvoiceCustomer(id) {
-  const request = axios({
-    method: 'get',
-    url: `${ROOT_URL}customers/${id}`
-  });
-
-  return {
-    type: SELECT_INVOICE_CUSTOMER,
     payload: request
   };
 }

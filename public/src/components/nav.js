@@ -16,9 +16,9 @@ const Nav = (props) => {
         </div>
         <div id="navbar" className="navbar-collapse collapse">
           <ul className="nav navbar-nav">
-            <li><Link to="products">Products</Link></li>
-            <li><Link to="customers">Customers</Link></li>
-            <li><Link to="invoices">Invoices</Link></li>
+            <li><Link to="/products">Products</Link></li>
+            <li><Link to="/customers">Customers</Link></li>
+            <li><Link to="/invoices">Invoices</Link></li>
           </ul>
         </div>
       </div>
