@@ -10,20 +10,19 @@ class AddInvoiceItemForm extends Component {
   }
 
   handleFormSubmit(event) {
-    console.log('form submitted', event);
     this.props.setProduct(event.target.value);
-    // this.props.signinUser({ email, password });
   }
 
-  addNewItem() {
-    const invoiceID = this.props.currentInvoice.id,
+  addNewItem({product, quantity}) {
+    console.log('inside addNewItem',this.props);
+    const invoiceID = this.props.invoice.id,
       newItem = {
         invoice_id: invoiceID,
-        product_id: this.props.currProduct.id,
-        quantity:
+        product_id: product,
+        quantity: quantity
       };
-    
-    this.props.addInvoiceItem(this.props.currentInvoice.id, newItem);
+
+    this.props.addInvoiceItem(invoiceID, newItem);
   }
 
   render() {
@@ -43,7 +42,7 @@ class AddInvoiceItemForm extends Component {
           ${this.props.currProduct.price}
         </td>
         <td>
-          <button type="button" className="btn btn-default" aria-label="Left Align">
+          <button type="submit" className="btn btn-default" aria-label="Left Align" onClick={handleSubmit(this.addNewItem.bind(this))}>
             <span className="lyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
         </td>
@@ -57,6 +56,7 @@ AddInvoiceItemForm = reduxForm({
 })(AddInvoiceItemForm);
 
 function mapStateToProps(state) {
+  console.log('--------',state.currentInvoice);
   return {
     currProduct: state.product,
     products: state.products,

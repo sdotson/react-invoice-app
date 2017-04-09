@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import {
   FETCH_INVOICES,
   ADD_INVOICE,
+  ADD_INVOICE_ITEM,
   FETCH_CUSTOMERS,
   SELECT_CUSTOMER,
   CREATE_CUSTOMER,

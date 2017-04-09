@@ -11,7 +11,6 @@ class AddInvoice extends Component {
   }
 
   handleFormSubmit(input) {
-    console.log('form submitted', input);
     // this.props.signinUser({ email, password });
   }
 
@@ -21,7 +20,8 @@ class AddInvoice extends Component {
   // to add invoice items
 
   render() {
-    const { handleSubmit, products, selectedCustomer, currentInvoice } = this.props;
+    const { handleSubmit, products, selectedCustomer, currentInvoice, invoiceItems } = this.props;
+    console.log('invoiceItems', invoiceItems);
     return (
       <div className="add-invoice">
         <p>Invoice #{currentInvoice.id}<br />
@@ -38,6 +38,15 @@ class AddInvoice extends Component {
           </thead>
           <tbody>
             <AddInvoiceItemForm />
+            {invoiceItems.map((item) => {
+                return (
+                  <tr>
+                    <td>{item.id}</td>
+                    <td>{item.quantity}</td>
+                  </tr>
+                );
+              })
+            }
           </tbody>
         </table>
       </div>
@@ -50,11 +59,11 @@ AddInvoice = reduxForm({
 })(AddInvoice);
 
 function mapStateToProps(state) {
-  console.log('state',state);
   return {
     products: state.products,
     selectedCustomer: state.selectedCustomer,
-    currentInvoice: state.currentInvoice
+    currentInvoice: state.currentInvoice,
+    invoiceItems: state.invoiceItems
   };
 }
 

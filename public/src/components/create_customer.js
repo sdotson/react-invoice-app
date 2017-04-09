@@ -10,13 +10,10 @@ class CreateCustomer extends Component {
   }
 
   handleFormSubmit(values) {
-    console.log('form submitted', values);
     this.props.createCustomer(values);
-    // this.props.signinUser({ email, password });
   }
 
   selectCustomer(customer) {
-    console.log('selectCustomer triggered', customer.currentTarget.value);
     this.props.selectCustomer(customer.currentTarget.value);
   }
 
