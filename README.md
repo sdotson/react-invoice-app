@@ -1,3 +1,7 @@
+# Background
+
+This project began as part of a coding interview. The challenge was to create an invoice application given a set of framework-agnostic starter files. I decided to go with React. I thought the challenge was interesting enough that I continued working on it after the interview.
+
 # Dependencies
 
 - sqlite3
@@ -70,5 +74,3 @@ GET|PUT|DELETE    /api/invoices/{id}
 GET|POST          /api/invoices/{id}/items
 GET|PUT|DELETE    /api/invoices/{invoice_id}/items/{id}
 ```
-
-
