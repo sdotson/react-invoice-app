@@ -109,9 +109,14 @@ export function setProduct(productID) {
 }
 
 export function addInvoiceItem(id, item) {
+  console.log('add invoice item form', id, item);
   const request = axios({
     method: 'post',
-    url: `${ROOT_URL}invoices/${id}/items`
+    url: `${ROOT_URL}invoices/${id}/items`,
+    data: {
+      product_id: item.product_id,
+      quantity: item.quantity
+    }
   });
 
   return {

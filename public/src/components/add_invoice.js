@@ -21,7 +21,6 @@ class AddInvoice extends Component {
 
   render() {
     const { handleSubmit, products, selectedCustomer, currentInvoice, invoiceItems } = this.props;
-    console.log('invoiceItems', invoiceItems);
     return (
       <div className="add-invoice">
         <p>Invoice #{currentInvoice.id}<br />
@@ -39,10 +38,12 @@ class AddInvoice extends Component {
           <tbody>
             <AddInvoiceItemForm />
             {invoiceItems.map((item) => {
+                let itemProduct = products.find(product => product.id == item.product_id);
                 return (
-                  <tr>
-                    <td>{item.id}</td>
+                  <tr key={item.id}>
+                    <td>{itemProduct.name}</td>
                     <td>{item.quantity}</td>
+                    <td>{itemProduct.price * item.quantity}</td>
                   </tr>
                 );
               })

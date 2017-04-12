@@ -14,11 +14,11 @@ class AddInvoiceItemForm extends Component {
   }
 
   addNewItem({product, quantity}) {
-    console.log('inside addNewItem',this.props);
+    console.log('product', product);
     const invoiceID = this.props.invoice.id,
       newItem = {
         invoice_id: invoiceID,
-        product_id: product,
+        product_id: product || 1,
         quantity: quantity
       };
 
@@ -56,7 +56,6 @@ AddInvoiceItemForm = reduxForm({
 })(AddInvoiceItemForm);
 
 function mapStateToProps(state) {
-  console.log('--------',state.currentInvoice);
   return {
     currProduct: state.product,
     products: state.products,
