@@ -21,7 +21,7 @@ class SetCustomer extends Component {
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
           <Field name="id" component="select" className="form-control">
-            <option value=""></option>
+            <option value="">Select a customer...</option>
             {customers.map(customer =>
               <option value={customer.id} key={customer.id}>{customer.name}</option>)}
           </Field>

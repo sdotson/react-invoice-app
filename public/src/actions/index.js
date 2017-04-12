@@ -45,14 +45,15 @@ export function addInvoice(customerID) {
   };
 }
 
-export function updateInvoice(invoiceID) {
+export function updateInvoice({ id, customer_id, discount, total }) {
   const request = axios({
     method: 'put',
-    url: `${ROOT_URL}invoices/${invoiceID}`,
+    url: `${ROOT_URL}invoices/${id}`,
     data: {
-      customer_id: '',
-      discount: '',
-      total: ''
+      id,
+      customer_id,
+      discount,
+      total
     }
   });
 

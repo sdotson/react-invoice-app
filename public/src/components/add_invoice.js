@@ -10,8 +10,14 @@ class AddInvoice extends Component {
     this.props.addInvoice(this.props.selectedCustomer.id);
   }
 
-  handleFormSubmit(input) {
-    // this.props.signinUser({ email, password });
+  handleDiscountChange(event) {
+    console.log('handleDiscountChange', event.target.value);
+    this.props.updateInvoice({
+      discount: event.target.value,
+      customer_id: this.props.selectedCustomer.id,
+      id: this.props.currentInvoice.id,
+      total: this.props.currentInvoice.total
+    });
   }
 
   render() {
@@ -21,6 +27,8 @@ class AddInvoice extends Component {
         <p>Invoice #{currentInvoice.id}<br />
           {selectedCustomer.name}<br />
         {selectedCustomer.address}</p>
+      <label>Discount (%):</label>
+        <Field component="input" name="discount" className="form-control" onChange={this.handleDiscountChange.bind(this)} />
         <table className="table table-striped">
           <thead>
             <tr>
@@ -49,8 +57,20 @@ class AddInvoice extends Component {
             <tr>
               <td></td>
               <td></td>
+              <td>Subtotal:</td>
+              <td>${this.props.currentInvoice.total}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Discount:</td>
+              <td>{this.props.currentInvoice.discount}%</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
               <td><strong>Total:</strong></td>
-              <td><strong>${this.props.currentInvoice.total}</strong></td>
+              <td><strong>${this.props.currentInvoice.total * (1 - this.props.currentInvoice.discount/100)}</strong></td>
             </tr>
           </tfoot>
         </table>
