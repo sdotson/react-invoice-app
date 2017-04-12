@@ -89,10 +89,12 @@ export function selectCustomer(id) {
   };
 }
 
-export function createCustomer() {
+export function createCustomer(data) {
+  console.log('createCustomer', data);
   const request = axios({
     method: 'post',
-    url: `${ROOT_URL}customers`
+    url: `${ROOT_URL}customers`,
+    data: data
   });
 
   browserHistory.push('/add-invoice/items');

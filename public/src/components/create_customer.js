@@ -10,11 +10,8 @@ class CreateCustomer extends Component {
   }
 
   handleFormSubmit(values) {
+    console.log('handleFormSubmit', values);
     this.props.createCustomer(values);
-  }
-
-  selectCustomer(customer) {
-    this.props.selectCustomer(customer.currentTarget.value);
   }
 
   render() {
@@ -33,7 +30,7 @@ class CreateCustomer extends Component {
           <label>Phone:</label>
           <Field name="phone" component="input" className="form-control" />
         </fieldset>
-        <button type="button" className="btn btn-primary" aria-label="Left Align">
+        <button type="submit" className="btn btn-primary" aria-label="Left Align">
           Create Customer
         </button>
         <Link to="/add-invoice/select-customer" className="btn btn-secondary" aria-label="Left Align">
