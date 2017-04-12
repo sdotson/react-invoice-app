@@ -8,7 +8,7 @@ class CustomerList extends Component {
     this.props.fetchCustomers();
   }
 
-  renderProduct(customer) {
+  renderCustomer(customer) {
     return (
       <tr key={customer.id}>
         <td>{customer.id}</td>
@@ -32,7 +32,7 @@ class CustomerList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.customers.map(this.renderProduct)}
+            {this.props.customers.map(this.renderCustomer)}
           </tbody>
         </table>
       </div>

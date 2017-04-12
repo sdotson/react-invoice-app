@@ -10,26 +10,32 @@ class InvoiceList extends Component {
 
   renderInvoice(invoice) {
     return (
-      <div className="card card-block">
-        <h4 className="card-title">{invoice.name}</h4>
-        <p className="card-text">{invoice.company.name}
-        </p>
-        <a className="btn btn-primary" href={invoice.website}>Website</a>
-      </div>
+      <tr key={invoice.id}>
+        <td>{invoice.id}</td>
+        <td>{invoice.customer_id}</td>
+        <td>{invoice.discount}</td>
+        <td>${invoice.total}</td>
+      </tr>
     );
   }
 
   render() {
     return (
       <div>
-        <div className="invoice-list">
-          {this.props.invoices.length > 0 ? this.props.invoices.map(this.renderInvoice) : "There are no invoices at the moment."}
-          <div>
-            <Link to="/add-invoice/select-customer">
-              <button type="button" className="btn btn-primary">Add Invoice</button>
-            </Link>
-          </div>
-        </div>
+        <Link to="/add-invoice/select-customer" className="btn btn-primary">Add Invoice</Link>
+        <table className="invoice-list table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Discount</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.invoices.map(this.renderInvoice)}
+          </tbody>
+        </table>
       </div>
     );
   }
