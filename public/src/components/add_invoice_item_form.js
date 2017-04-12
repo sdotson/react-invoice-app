@@ -14,15 +14,22 @@ class AddInvoiceItemForm extends Component {
   }
 
   addNewItem(values) {
-    console.log('product', values);
+    let currTotal = this.props.invoice.total || 0,
+      addedExpense = this.props.currProduct.price * values.quantity,
+      newTotal = currTotal + addedExpense;
     const invoiceID = this.props.invoice.id,
       newItem = {
         invoice_id: invoiceID,
         product_id: values.product || 1,
         quantity: values.quantity
+      },
+      customer = {
+        total: newTotal,
+        discount: this.props.invoice.discount,
+        id: this.props.customer.id
       };
 
-    this.props.addInvoiceItem(invoiceID, newItem);
+    this.props.addInvoiceItem(invoiceID, newItem, customer);
   }
 
   render() {

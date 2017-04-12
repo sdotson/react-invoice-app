@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import {
   FETCH_INVOICES,
   ADD_INVOICE,
+  UPDATE_INVOICE,
   ADD_INVOICE_ITEM,
   FETCH_CUSTOMERS,
   SELECT_CUSTOMER,
@@ -40,6 +41,23 @@ export function addInvoice(customerID) {
 
   return {
     type: ADD_INVOICE,
+    payload: request
+  };
+}
+
+export function updateInvoice(invoiceID) {
+  const request = axios({
+    method: 'put',
+    url: `${ROOT_URL}invoices/${invoiceID}`,
+    data: {
+      customer_id: '',
+      discount: '',
+      total: ''
+    }
+  });
+
+  return {
+    type: UPDATE_INVOICE,
     payload: request
   };
 }
@@ -108,16 +126,25 @@ export function setProduct(productID) {
   };
 }
 
-export function addInvoiceItem(id, item) {
-  console.log('add invoice item form', id, item);
-  const request = axios({
+export function addInvoiceItem(id, item, customer) {
+  console.log('add invoice item form', id, item, customer);
+  const request = axios.all([{
     method: 'post',
     url: `${ROOT_URL}invoices/${id}/items`,
     data: {
       product_id: item.product_id,
       quantity: item.quantity
     }
-  });
+  }, {
+    method: 'put',
+    url: `${ROOT_URL}invoices/${id}`,
+    data: {
+      total: customer.total,
+      discount: customer.discount,
+      customer_id: customer.id
+    }
+  }
+]);
 
   return {
     type: ADD_INVOICE_ITEM,

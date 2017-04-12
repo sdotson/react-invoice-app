@@ -45,6 +45,14 @@ class AddInvoice extends Component {
             }
             <AddInvoiceItemForm />
           </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><strong>Total:</strong></td>
+              <td><strong>${this.props.currentInvoice.total}</strong></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     );
