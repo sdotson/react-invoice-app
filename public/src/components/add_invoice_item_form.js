@@ -13,13 +13,13 @@ class AddInvoiceItemForm extends Component {
     this.props.setProduct(event.target.value);
   }
 
-  addNewItem({product, quantity}) {
-    console.log('product', product);
+  addNewItem(values) {
+    console.log('product', values);
     const invoiceID = this.props.invoice.id,
       newItem = {
         invoice_id: invoiceID,
-        product_id: product || 1,
-        quantity: quantity
+        product_id: values.product || 1,
+        quantity: values.quantity
       };
 
     this.props.addInvoiceItem(invoiceID, newItem);

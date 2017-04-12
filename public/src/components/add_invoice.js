@@ -14,11 +14,6 @@ class AddInvoice extends Component {
     // this.props.signinUser({ email, password });
   }
 
-  // note to self... make this a multi-step form.
-  // first choose or create customer, create new invoice
-  // then proceed to next step with customer info and invoice info at top
-  // to add invoice items
-
   render() {
     const { handleSubmit, products, selectedCustomer, currentInvoice, invoiceItems } = this.props;
     return (
@@ -36,18 +31,19 @@ class AddInvoice extends Component {
             </tr>
           </thead>
           <tbody>
-            <AddInvoiceItemForm />
             {invoiceItems.map((item) => {
                 let itemProduct = products.find(product => product.id == item.product_id);
                 return (
                   <tr key={item.id}>
                     <td>{itemProduct.name}</td>
                     <td>{item.quantity}</td>
-                    <td>{itemProduct.price * item.quantity}</td>
+                    <td>${itemProduct.price * item.quantity}</td>
+                    <td></td>
                   </tr>
                 );
               })
             }
+            <AddInvoiceItemForm />
           </tbody>
         </table>
       </div>
