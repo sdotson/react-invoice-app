@@ -5,17 +5,12 @@ import { Link } from 'react-router';
 import * as actions from '../actions';
 
 class CreateCustomer extends Component {
-  componentWillMount() {
-
-  }
-
   handleFormSubmit(values) {
-    console.log('handleFormSubmit', values);
     this.props.createCustomer(values);
   }
 
   render() {
-    const { products, handleSubmit, customers } = this.props;
+    const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
@@ -45,12 +40,4 @@ CreateCustomer = reduxForm({
   form: 'createcustomer'
 })(CreateCustomer);
 
-function mapStateToProps(state) {
-  return {
-    currProduct: state.product,
-    products: state.products,
-    customers: state.customers
-  };
-}
-
-export default connect(mapStateToProps, actions)(CreateCustomer);
+export default connect(null, actions)(CreateCustomer);

@@ -58,19 +58,19 @@ class AddInvoice extends Component {
               <td></td>
               <td></td>
               <td>Subtotal:</td>
-              <td>${this.props.currentInvoice.total.toFixed(2)}</td>
+              <td>${currentInvoice.total.toFixed(2)}</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td>Discount:</td>
-              <td>{this.props.currentInvoice.discount}%</td>
+              <td>{currentInvoice.discount}%</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td><strong>Total:</strong></td>
-              <td><strong>${(this.props.currentInvoice.total * (1 - this.props.currentInvoice.discount/100)).toFixed(2)}</strong></td>
+              <td><strong>${(currentInvoice.total * (1 - currentInvoice.discount/100)).toFixed(2)}</strong></td>
             </tr>
           </tfoot>
         </table>

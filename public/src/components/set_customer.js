@@ -11,7 +11,6 @@ class SetCustomer extends Component {
   }
 
   handleFormSubmit({id}) {
-    console.log('form submitted', id);
     this.props.selectCustomer(id);
   }
 

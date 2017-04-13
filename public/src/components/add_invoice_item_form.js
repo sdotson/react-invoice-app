@@ -34,7 +34,7 @@ class AddInvoiceItemForm extends Component {
   }
 
   render() {
-    const { products, handleSubmit } = this.props;
+    const { currProduct, products, handleSubmit } = this.props;
     return (
       <tr>
         <td>
@@ -47,7 +47,7 @@ class AddInvoiceItemForm extends Component {
           <Field name="quantity" component="input" className="form-control" />
         </td>
         <td>
-          ${this.props.currProduct.price}
+          ${currProduct.price}
         </td>
         <td>
           <button type="submit" className="btn btn-default" aria-label="Left Align" onClick={handleSubmit(this.addNewItem.bind(this))}>
