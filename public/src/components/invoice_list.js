@@ -33,7 +33,7 @@ class InvoiceList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.invoices.map(this.renderInvoice)}
+            {this.props.invoices.filter(invoice => invoice.total).map(this.renderInvoice)}
           </tbody>
         </table>
       </div>

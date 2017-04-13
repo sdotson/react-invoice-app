@@ -12,3 +12,5 @@ export const FETCH_PRODUCTS = 'fetch_products';
 export const SET_PRODUCT = 'set_product';
 
 export const ADD_INVOICE_ITEM = 'add_invoice_item';
+
+export const FORM_ERROR = 'form_error';

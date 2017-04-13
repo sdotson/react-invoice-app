@@ -6,7 +6,7 @@ import * as actions from '../actions';
 import AddInvoiceItemForm from './add_invoice_item_form';
 
 class AddInvoice extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.addInvoice(this.props.selectedCustomer.id);
   }
 
@@ -58,7 +58,7 @@ class AddInvoice extends Component {
               <td></td>
               <td></td>
               <td>Subtotal:</td>
-              <td>${this.props.currentInvoice.total}</td>
+              <td>${this.props.currentInvoice.total.toFixed(2)}</td>
             </tr>
             <tr>
               <td></td>
@@ -70,7 +70,7 @@ class AddInvoice extends Component {
               <td></td>
               <td></td>
               <td><strong>Total:</strong></td>
-              <td><strong>${this.props.currentInvoice.total * (1 - this.props.currentInvoice.discount/100)}</strong></td>
+              <td><strong>${(this.props.currentInvoice.total * (1 - this.props.currentInvoice.discount/100)).toFixed(2)}</strong></td>
             </tr>
           </tfoot>
         </table>
