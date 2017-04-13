@@ -13,7 +13,7 @@ class InvoiceList extends Component {
       <tr key={invoice.id}>
         <td>{invoice.id}</td>
         <td>{invoice.customer_id}</td>
-        <td>{invoice.discount}</td>
+        <td>{invoice.discount}%</td>
         <td>${invoice.total}</td>
       </tr>
     );
@@ -26,8 +26,8 @@ class InvoiceList extends Component {
         <table className="invoice-list table table-striped">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Customer</th>
+              <th>Invoice ID</th>
+              <th>Customer ID</th>
               <th>Discount</th>
               <th>Total</th>
             </tr>

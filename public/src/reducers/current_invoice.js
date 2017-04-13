@@ -11,7 +11,7 @@ export default function(state = { total: 0, discount: 0 }, action) {
     case UPDATE_INVOICE:
       return { ...state, ...action.payload.data };
     case ADD_INVOICE_ITEM:
-      console.log('currentINvoice reducer', action.payload[1].data);
+      console.log('currentINvoice reducer', action);
       return { ...state, total: action.payload[1].data.total }
   }
 

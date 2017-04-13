@@ -111,6 +111,10 @@ app.route('/api/invoices/:invoice_id')
   .put(function(req, res) {
     Invoice.findById(req.params.invoice_id).then(function(invoice) {
       invoice.update(_.pick(req.body, ['customer_id', 'discount', 'total'])).then(function(invoice) {
+        console.log('------TEST--------');
+        console.log(req.body);
+        console.log(invoice.total, invoice.discount);
+        console.log('------TEST--------');
         res.json(invoice);
       });
     });

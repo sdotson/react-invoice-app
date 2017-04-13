@@ -28,6 +28,7 @@ class AddInvoiceItemForm extends Component {
         discount: this.props.invoice.discount,
         id: this.props.customer.id
       };
+      console.log('newTotal', newTotal);
 
     this.props.addInvoiceItem(invoiceID, newItem, customer);
   }

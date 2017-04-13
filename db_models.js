@@ -47,10 +47,10 @@ Invoice = sequelize.define('invoices', {
     type: Sequelize.INTEGER
   },
   discount: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.TEXT
   },
   total: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.TEXT
   }
 });
 

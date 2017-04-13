@@ -130,24 +130,26 @@ export function setProduct(productID) {
 }
 
 export function addInvoiceItem(id, item, customer) {
-  console.log('add invoice item form', id, item, customer);
-  const request = axios.all([{
-    method: 'post',
-    url: `${ROOT_URL}invoices/${id}/items`,
-    data: {
-      product_id: item.product_id,
-      quantity: item.quantity
-    }
-  }, {
-    method: 'put',
-    url: `${ROOT_URL}invoices/${id}`,
-    data: {
-      total: customer.total,
-      discount: customer.discount,
-      customer_id: customer.id
-    }
-  }
-]);
+  console.log('add invoice item form', item, customer);
+  const request = axios.all([axios({
+      method: 'post',
+      url: `${ROOT_URL}invoices/${id}/items`,
+      data: {
+        invoice_id: id,
+        product_id: item.product_id,
+        quantity: item.quantity
+      }
+    }), axios({
+      method: 'put',
+      url: `${ROOT_URL}invoices/${id}`,
+      data: {
+        id: id,
+        customer_id: customer.id,
+        discount: customer.discount,
+        total: customer.total
+      }
+    })
+  ]);
 
   return {
     type: ADD_INVOICE_ITEM,
