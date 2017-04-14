@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
-import * as actions from '../actions';
 
-import FormField from './form_field';
+import * as actions from '../../actions';
+import FormField from '../form_field/form_field';
 
 class CreateCustomer extends Component {
   handleFormSubmit(values) {

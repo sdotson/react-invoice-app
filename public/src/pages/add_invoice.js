@@ -1,6 +1,7 @@
 import React from 'react';
-import AddInvoiceForm from '../components/add_invoice';
-import Header from '../components/header';
+
+import AddInvoiceForm from '../components/add_invoice/add_invoice';
+import Header from '../components/header/header';
 
 const AddInvoice = (props) => {
   return (

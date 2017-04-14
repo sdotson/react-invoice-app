@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-import * as actions from '../actions';
-import AddInvoiceItemForm from './add_invoice_item_form';
-import FormField from './form_field';
+import * as actions from '../../actions';
+import AddInvoiceItemForm from '../add_invoice_item/add_invoice_item';
+import FormField from '../form_field/form_field';
 
 class AddInvoice extends Component {
   componentDidMount() {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-const { DOM: { input, select, textarea } } = React;
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
-import * as actions from '../actions';
 
-class SetCustomer extends Component {
+import * as actions from '../../actions';
+
+class SelectCustomer extends Component {
   componentWillMount() {
     this.props.fetchCustomers();
   }
@@ -36,9 +36,9 @@ class SetCustomer extends Component {
   }
 }
 
-SetCustomer = reduxForm({
+SelectCustomer = reduxForm({
   form: 'setcustomer'
-})(SetCustomer);
+})(SelectCustomer);
 
 function mapStateToProps(state) {
   return {
@@ -46,4 +46,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, actions)(SetCustomer);
+export default connect(mapStateToProps, actions)(SelectCustomer);

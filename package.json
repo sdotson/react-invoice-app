@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node app & webpack --progress --colors --watch",
-    "seed": "node seed_database"
+    "seed": "node seed_database",
+    "test": "jest --config=testConfig/jest.config.json",
+    "test:watch": "jest --config=testConfig/jest.config.json --watch"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -12,6 +14,7 @@
     "body-parser": "1.15.2",
     "cors": "2.8.1",
     "express": "~4.13.4",
+    "jest": "^19.0.2",
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",

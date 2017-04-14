@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import * as actions from '../actions';
 
-import FormField from './form_field';
+import * as actions from '../../actions';
+import FormField from '../form_field/form_field';
 
-class AddInvoiceItemForm extends Component {
+class AddInvoiceItem extends Component {
   componentWillMount() {
     this.props.fetchProducts();
     this.props.setProduct(1);
@@ -71,10 +71,10 @@ function validate(values) {
   return errors;
 }
 
-AddInvoiceItemForm = reduxForm({
+AddInvoiceItem = reduxForm({
   form: 'addinvoiceitem',
   validate
-})(AddInvoiceItemForm);
+})(AddInvoiceItem);
 
 function mapStateToProps(state) {
   return {
@@ -85,4 +85,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, actions)(AddInvoiceItemForm);
+export default connect(mapStateToProps, actions)(AddInvoiceItem);
