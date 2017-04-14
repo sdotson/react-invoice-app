@@ -10,6 +10,9 @@ This project began as part of a coding interview. The challenge was to create an
 
 # Getting Started
 
+###### Seed database with data
+`node seed_database`
+
 ###### Install npm dependencies
 `npm install`
 
