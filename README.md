@@ -14,12 +14,12 @@ This project began as part of a coding interview. The challenge was to create an
 `npm install`
 
 ###### Run the node server
-`node app.js`
+`npm start`
 
 ###### Viewing the application in your browser
 `http://localhost:8000`
 
-# Schema
+# SQLite Schema
 
 ## Customers
 
@@ -50,7 +50,7 @@ This project began as part of a coding interview. The challenge was to create an
 - quantity (decimal)
 
 
-# Resources
+# API Endpoints
 
 ## Customers
 ```
