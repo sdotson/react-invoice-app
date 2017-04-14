@@ -12,7 +12,6 @@ class AddInvoice extends Component {
   }
 
   handleDiscountChange(event) {
-    console.log('handleDiscountChange', event.target.value);
     this.props.updateInvoice({
       discount: event.target.value,
       customer_id: this.props.selectedCustomer.id,
@@ -80,7 +79,6 @@ class AddInvoice extends Component {
 }
 
 function validate(values) {
-  console.log('validate', values);
   const errors ={};
 
   if (values.discount < 0 || values.discount > 100 || (values.discount && !values.discount.match(/[0-9]+/))) {
