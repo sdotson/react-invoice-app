@@ -4,6 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 import * as actions from '../actions';
 
+import FormField from './form_field';
+
 class CreateCustomer extends Component {
   handleFormSubmit(values) {
     this.props.createCustomer(values);
@@ -14,16 +16,13 @@ class CreateCustomer extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
-          <label>Name:</label>
-          <Field name="name" component="input" className="form-control" />
+          <Field name="name" label="Name" component={FormField} />
         </fieldset>
         <fieldset className="form-group">
-          <label>Address:</label>
-          <Field name="address" component="input" className="form-control" />
+          <Field name="address" label="Address" component={FormField} />
         </fieldset>
         <fieldset className="form-group">
-          <label>Phone:</label>
-          <Field name="phone" component="input" className="form-control" />
+          <Field name="phone" label="Phone" component={FormField} />
         </fieldset>
         <button type="submit" className="btn btn-primary" aria-label="Left Align">
           Create Customer
@@ -36,8 +35,27 @@ class CreateCustomer extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if (!values.name) {
+    errors.name = "Name is required"
+  }
+
+  if (!values.address) {
+    errors.address = "Address is required"
+  }
+
+  if (!values.phone) {
+    errors.phone = "Phone is required"
+  }
+
+  return errors;
+}
+
 CreateCustomer = reduxForm({
-  form: 'createcustomer'
+  form: 'createcustomer',
+  validate
 })(CreateCustomer);
 
 export default connect(null, actions)(CreateCustomer);
