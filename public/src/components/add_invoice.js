@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 
 import * as actions from '../actions';
 import AddInvoiceItemForm from './add_invoice_item_form';
+import FormField from './form_field';
 
 class AddInvoice extends Component {
   componentDidMount() {
@@ -27,8 +28,7 @@ class AddInvoice extends Component {
         <p>Invoice #{currentInvoice.id}<br />
           {selectedCustomer.name}<br />
         {selectedCustomer.address}</p>
-      <label>Discount (%):</label>
-        <Field component="input" name="discount" className="form-control" onChange={this.handleDiscountChange.bind(this)} />
+        <Field label="Discount (%):" component={FormField} name="discount" onChange={this.handleDiscountChange.bind(this)} />
         <table className="table table-striped">
           <thead>
             <tr>
@@ -79,8 +79,20 @@ class AddInvoice extends Component {
   }
 }
 
+function validate(values) {
+  console.log('validate', values);
+  const errors ={};
+
+  if (values.discount < 0 || values.discount > 100 || !Number.isInteger(values.discount)) {
+    errors.discount = "Discount must be a number between 0 and 100";
+  }
+
+  return errors;
+}
+
 AddInvoice = reduxForm({
-  form: 'addinvoice'
+  form: 'addinvoice',
+  validate
 })(AddInvoice);
 
 function mapStateToProps(state) {
