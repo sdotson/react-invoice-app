@@ -13,6 +13,7 @@
     "babel-preset-stage-1": "^6.1.18",
     "body-parser": "1.15.2",
     "cors": "2.8.1",
+    "enzyme": "^2.8.2",
     "express": "~4.13.4",
     "jest": "^19.0.2",
     "lodash": "^3.10.1",

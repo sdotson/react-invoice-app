@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './components/app';
+import App from './components/app/app';
 import Customers from './pages/customers';
 import Products from './pages/products';
 import Invoices from './pages/invoices';
