@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from '../actions';
 
+import FormField from './form_field';
+
 class AddInvoiceItemForm extends Component {
   componentWillMount() {
     this.props.fetchProducts();
@@ -28,7 +30,6 @@ class AddInvoiceItemForm extends Component {
         discount: this.props.invoice.discount,
         id: this.props.customer.id
       };
-      console.log('newTotal', newTotal);
 
     this.props.addInvoiceItem(invoiceID, newItem, customer);
   }
@@ -44,7 +45,7 @@ class AddInvoiceItemForm extends Component {
           </Field>
         </td>
         <td>
-          <Field name="quantity" component="input" className="form-control" />
+          <Field name="quantity" component={FormField} />
         </td>
         <td>
           ${currProduct.price}
@@ -59,8 +60,20 @@ class AddInvoiceItemForm extends Component {
   }
 }
 
+function validate(values) {
+  console.log(values);
+  const errors = {};
+
+  if (values.quantity && !values.quantity.match(/[1-9]+/)) {
+    errors.quantity = "Quantity must be a number greater than 1";
+  }
+
+  return errors;
+}
+
 AddInvoiceItemForm = reduxForm({
-  form: 'addinvoiceitem'
+  form: 'addinvoiceitem',
+  validate
 })(AddInvoiceItemForm);
 
 function mapStateToProps(state) {

@@ -83,7 +83,7 @@ function validate(values) {
   console.log('validate', values);
   const errors ={};
 
-  if (values.discount < 0 || values.discount > 100 || !Number.isInteger(values.discount)) {
+  if (values.discount < 0 || values.discount > 100 || (values.discount && !values.discount.match(/[0-9]+/))) {
     errors.discount = "Discount must be a number between 0 and 100";
   }
 
